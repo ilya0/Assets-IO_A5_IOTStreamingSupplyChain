@@ -1,0 +1,106 @@
+name: cloudforcebc
+x-type: hlfv1
+description: 'The connection profile of OABCS instance'
+version: '1.0'
+client:
+  organization: cloudforcebc
+  credentialStore:
+    path: /tmp/hfc-kvs
+    cryptoStore:
+      path: /tmp/hfc-cvs
+channels:
+  default:
+    orderers:
+      - cloudforcebc1orderer0
+    peers:
+      cloudforcebc1peer0:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      cloudforcebc1peer1:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      cloudforcebc2peer0:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      cloudforcebc2peer1:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+    chaincodes:
+      - 'obcs-cardealer:v0'
+organizations:
+  cloudforcebc:
+    mspid: cloudforcebc
+    peers:
+      - cloudforcebc1peer0
+      - cloudforcebc1peer1
+      - cloudforcebc2peer0
+      - cloudforcebc2peer1
+    adminPrivateKey:
+      path: ../artifacts/crypto/peerOrganizations/cloudforcebc/keystore/cloudforcebc-key.pem
+    signedCert:
+      path: ../artifacts/crypto/peerOrganizations/cloudforcebc/signcert/cloudforcebc-signcert.pem
+orderers:
+  cloudforcebc1orderer0:
+    url: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7301'
+    grpcOptions:
+      ssl-target-name-override: 0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com
+      grpc-max-send-message-length: 15
+    tlsCACerts:
+      path: ../artifacts/crypto/ordererOrganizations/cloudforcebc/tlscacert/cloudforcebc-tlscacert.pem
+peers:
+  cloudforcebc1peer0:
+    url: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7100'
+    eventUrl: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7101'
+    grpcOptions:
+      ssl-target-name-override: 0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com
+      grpc-max-send-message-length: 15
+    tlsCACerts:
+      path: ../artifacts/crypto/peerOrganizations/cloudforcebc/tlscacert/cloudforcebc-tlscacert.pem
+  cloudforcebc1peer1:
+    url: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7102'
+    eventUrl: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7103'
+    grpcOptions:
+      ssl-target-name-override: 0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com
+      grpc-max-send-message-length: 15
+    tlsCACerts:
+      path: ../artifacts/crypto/peerOrganizations/cloudforcebc/tlscacert/cloudforcebc-tlscacert.pem
+  cloudforcebc2peer0:
+    url: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7116'
+    eventUrl: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7117'
+    grpcOptions:
+      ssl-target-name-override: 0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com
+      grpc-max-send-message-length: 15
+    tlsCACerts:
+      path: ../artifacts/crypto/peerOrganizations/cloudforcebc/tlscacert/cloudforcebc-tlscacert.pem
+  cloudforcebc2peer1:
+    url: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7118'
+    eventUrl: 'grpcs://0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com:7119'
+    grpcOptions:
+      ssl-target-name-override: 0197755BED494AA496F12E715FB64150-mgmt.blockchain.ocp.oraclecloud.com
+      grpc-max-send-message-length: 15
+    tlsCACerts:
+      path: ../artifacts/crypto/peerOrganizations/cloudforcebc/tlscacert/cloudforcebc-tlscacert.pem
+RESTProxies:
+  cloudforcebcrestproxy1:
+    url: 'https://0197755BED494AA496F12E715FB64150.blockchain.ocp.oraclecloud.com:443/restproxy1'
+    channels:
+      default:
+        chaincodes:
+          - obcs-cardealer
+  cloudforcebcrestproxy2:
+    url: 'https://0197755BED494AA496F12E715FB64150.blockchain.ocp.oraclecloud.com:443/restproxy2'
+    channels: {}
+  cloudforcebcrestproxy3:
+    url: 'https://0197755BED494AA496F12E715FB64150.blockchain.ocp.oraclecloud.com:443/restproxy3'
+    channels: {}
+  cloudforcebcrestproxy4:
+    url: 'https://0197755BED494AA496F12E715FB64150.blockchain.ocp.oraclecloud.com:443/restproxy4'
+    channels: {}
