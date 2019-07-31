@@ -24,18 +24,7 @@ The blockchain side of the application will not record data unless a blockchain 
 
 **Dashboard** - shows the various parameters of the assets that are being trasacted as well as a list of these assets. These parameters include: Asset ID, Type, Price, Period, price change, current status
 
-**Action list** - Blank page for custom actions
 
-**Submit page** - Asset submission test page used to submit assets into the blockchain for testing
-
-**Notifications** - This is a custom dashboard that shows all the overal statuses of the components of the application
-
-	- Overall Network status - Overall check of any of the components and if any of them don't work, this will be red
-	- Blockchain status - Check if the blockchain is up and running
-	- Blockchain version - Shows current version of the chaincode
-	- OIC connector - Check if the connector is running
-	- Single View - Check if the single view application is responding
-	- Siebel status - Current status of Siebel software
 
 
 ### Prerequisities
